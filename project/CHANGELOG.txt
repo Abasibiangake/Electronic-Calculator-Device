@@ -1,0 +1,58 @@
+3662 Mini-project - Change log
+
+
+
+------------ V1.06	2019-12-12 ------------
+
+1. Obscure bug corrected in SyntaxCheckStage1() in calculate_answer.c.
+	(Bad handling of strings without triling NULL or overlong.)
+
+------------ V1.05	2019-11-28 ------------
+
+1. calculate_answer.c: both instances of exit(EXIT_FAILURE) moved inside 
+	#if RUNNING_ON_PC statements. Reason: Tiva turns out not to have 
+	exit().
+
+------------ V1.04	2019-11-07 ------------
+
+1. calculate_answer.c is now a fully working version, not just a 
+	place-holder.
+2. New program test_calcuator added. This runs on a PC/Mac/Linux box, not a Tiva, 
+	and allows the user to experiment with the calculate_answer module.
+3. README.txt file added with comments on what the software package contains.
+4. Package file name changed from SourceFiles to SoftwarePackage.
+	
+------------ V1.03	2019-11-06 ------------
+
+1. Definitions of register addresses for pull-down resistors added to 
+	low_level_funcs_tiva.c, underneath those for pull-up resistors.
+
+------------ V1.02	2019-10-18 ------------
+
+1. Makefile added.
+
+2. CHANGELOG.txt (this file) added.
+
+3. Zipfile names now include version number.
+
+4. main.c
+4.1. Line 76: Call to ReadFloatFromFlash (old name) changed to ReadDoubleFromFlash 
+	(new name).
+4.2. Line 96: Call to WriteFloatToFlash (old name) changed to WriteDoubleToFlash 
+	(new name).
+
+5. low_level_funcs_tiva.h
+5.1. Line 121: Declaration of function SendDisplayNibble lacked semicolon at end; 
+	now added.
+5.2. Line 202: Doxygen close-section command was //*} ; now corrected to //@} .
+
+6. low_level_funcs_tiva.c
+6.1. Line 208: Definition of function SetPrintPosition lacked } at end; now added.
+6.2. Lines 96-113: Removed requirement to define values of the addresses needed to 
+	set up the clocks. Reason: these are already defined in PLL.h which is 
+	#included by TExaS.h, which is #included by low_level_funcs_tiva.c.
+
+------------ V1.01	2019-10-17 ------------
+#define constants added at top of low_level_funcs_tiva.c.
+
+ 
